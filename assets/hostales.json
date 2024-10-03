@@ -1,0 +1,31 @@
+[
+    {
+        "name": "HOSTAL MAJOS",
+        "stars": "0",
+        "imagenUrl": "",
+        "number": "25286963 / 25281020",
+        "descripcion": "HAB. INDIVIDUAL , HAB. MATRIMONIAL, HAB. DOBLES, HAB. TRIPLES",
+        "ubicacion": "https://maps.app.goo.gl/yhd6aRLRMQfRGy3X8"
+    },{
+        "name": "HOSTAL FLORYDA",
+        "stars": "0",
+        "imagenUrl": "",
+        "number": "73809692",
+        "descripcion": "HAB. MATRIMONIAL, HAB. DOBLES, HAB. TRIPLES",
+        "ubicacion": "https://maps.app.goo.gl/tD6QprPTiQwF5FLVA"
+    },{
+        "name": "HOSTAL CASA BLANCA",
+        "stars": "0",
+        "imagenUrl": "",
+        "number": "77153171 / 76131333",
+        "descripcion": "HABITACIONES SIMPLES, DOBLES, TRIPLES, FAMILIARES, MATRIMONIALES",
+        "ubicacion": "https://maps.app.goo.gl/MdM84hNuE2EEbpsM6"
+    },{
+        "name": "HOSTAL GRACIELA",
+        "stars": "0",
+        "imagenUrl": "",
+        "number": "72022095",
+        "descripcion": "HAB. INDIVIDUAL , HAB. MATRIMONIAL, HAB. DOBLES, HAB. TRIPLES",
+        "ubicacion": "https://maps.app.goo.gl/ncK5rVJq4uWf8JMe7"
+    }
+]

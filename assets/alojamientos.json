@@ -1,0 +1,52 @@
+[
+    {
+        "name": "ALOJAMIENTO LA PAZ 1",
+        "stars": "0",
+        "imagenUrl": "",
+        "number": "78600884",
+        "descripcion": "HABITACIONES SIMPLES, DOBLES, TRIPLES, FAMILIARES, MATRIMONIALES",
+        "ubicacion": "https://maps.app.goo.gl/csnqGMTTZfuwRBk77"
+    },{
+        "name": "ALOJAMIENTO LA PAZ 2",
+        "stars": "0",
+        "imagenUrl": "",
+        "number": "72343992",
+        "descripcion": "HABITACIONES SIMPLES, DOBLES, TRIPLES, FAMILIARES, MATRIMONIALES",
+        "ubicacion": "https://maps.app.goo.gl/4EPF9nUQs8QskNAZ8"
+    },{
+        "name": "ALOJAMIENTO IGNACIO 1",
+        "stars": "0",
+        "imagenUrl": "",
+        "number": "25276543",
+        "descripcion": "HAB. INDIVIDUAL , HAB. MATRIMONIAL, HAB. DOBLES, HAB. TRIPLES",
+        "ubicacion": "https://maps.app.goo.gl/MD6adzcMTQSR6qQo7"
+    },{
+        "name": "ALOJAMIENTO IGNACIO 2",
+        "stars": "0",
+        "imagenUrl": "",
+        "number": "25276543",
+        "descripcion": "HAB. INDIVIDUAL , HAB. MATRIMONIAL, HAB. DOBLES, HAB. TRIPLES",
+        "ubicacion": "https://maps.app.goo.gl/RBmvJK2C6J2fReRg8"
+    },{
+        "name": "ALOJAMIENTO REMANSO",
+        "stars": "0",
+        "imagenUrl": "",
+        "number": "25279320",
+        "descripcion": "HABITACIONES SIMPLES, DOBLES, TRIPLES, FAMILIARES, MATRIMONIALES.",
+        "ubicacion": "https://maps.app.goo.gl/ypAryg3FgMVg8x8v8"
+    },{
+        "name": "ALOJAMIENTO SAN JORGE",
+        "stars": "0",
+        "imagenUrl": "",
+        "number": "60430333",
+        "descripcion": "HAB. INDIVIDUAL , HAB. MATRIMONIAL, HAB. DOBLES, HAB. TRIPLES.",
+        "ubicacion": "https://maps.app.goo.gl/q5ju7HNNU9Kpop9z9"
+    },{
+        "name": "ALOJAMIENTO BOULEVARD",
+        "stars": "0",
+        "imagenUrl": "",
+        "number": "67237086",
+        "descripcion": "HAB. INDIVIDUAL , HAB. MATRIMONIAL, HAB. DOBLES, HAB. TRIPLES.",
+        "ubicacion": "https://maps.app.goo.gl/oXU96AtKiHpbGQyb9"
+    }
+]
