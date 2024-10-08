@@ -16,13 +16,15 @@ class MenuButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12), // <-- Radius
           ),
-          alignment: Alignment(-1, 0),
+          alignment: const Alignment(-1, 0),
           foregroundColor: Colors.black,
           backgroundColor: const Color.fromARGB(255, 255, 205, 6),
           minimumSize: const Size(double.infinity, 50),
         ),
         icon: Icon(icon,),
-        label: Text(text, style: TextStyle(fontSize: 19)),
+        label: Text(text, style: const TextStyle(
+          fontSize: 19
+        )),
         onPressed: onPressed
       ),
     );

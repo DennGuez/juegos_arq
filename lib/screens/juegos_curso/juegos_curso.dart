@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:juegos_arq/shared/widgets/background_image.dart';
 // import 'package:juegos_arq/shared/widgets/footer_buttons.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -9,13 +8,20 @@ class JuegosEnCurso extends StatefulWidget {
 
   @override
   State<JuegosEnCurso> createState() => _JuegosEnCursoState();
+  
 }
 
 class _JuegosEnCursoState extends State<JuegosEnCurso> {
   TextEditingController controller = TextEditingController();
-  final _notesStream = Supabase.instance.client.from('partidos').stream(primaryKey: ['id']);
+
   @override
   Widget build(BuildContext context) {
+  final fechaActual = DateTime.now();
+  final notesStream = Supabase.instance.client
+    .from('partidos')
+    .stream(primaryKey: ['id'])
+    .eq('fecha', fechaActual);
+    // print(fechaActual.toString().split(' ')[0]);
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -35,25 +41,27 @@ class _JuegosEnCursoState extends State<JuegosEnCurso> {
                 ),
               ),
               StreamBuilder<List<Map<String, dynamic>>>(
-              stream: _notesStream, 
+              stream: notesStream, 
               builder: (context, snapshot) {
                 if (!snapshot.hasData) {
                   return const Center(child: CircularProgressIndicator(),);
                 }
                 final partidos = snapshot.data!;
-                return ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: partidos.length,
-                  itemBuilder: (context, index) {
-                  return GameCard(
-                          title: partidos[index]['partido'],
-                          subtitle: partidos[index]['categoria_test'],
-                          time: partidos[index]['hora']
-                    );
-                  }
+                return Expanded(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: partidos.length,
+                    itemBuilder: (context, index) {
+                    return GameCard(
+                            title: partidos[index]['partido'],
+                            subtitle: partidos[index]['categoria_test'],
+                            time: partidos[index]['hora']
+                      );
+                    }
+                  ),
                 );
               }
-                    ),
+              ),
             ],
           )
         ]
@@ -111,45 +119,45 @@ class GameCard extends StatelessWidget {
   final String subtitle;
   final String time;
 
-  GameCard({required this.title, required this.subtitle, required this.time});
+  const GameCard({required this.title, required this.subtitle, required this.time});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
-        side: BorderSide(
+        side: const BorderSide(
           color: Colors.white,
           width: 2.0,
         ),
       ),
-      color: Color(0xff000643),
-      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      color: const Color(0xff000643),
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       child: Padding(
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Text(
               subtitle,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Text(
               time,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 color: Colors.white,
               ),

@@ -19,6 +19,7 @@ class _AddGameState extends State<AddGame> {
   Widget build(BuildContext context) {
     String? titulo;
     String? resultado;
+    String? fecha;
     return Scaffold(
       backgroundColor: const Color(0xff000643),
       body: Form(
@@ -60,7 +61,10 @@ class _AddGameState extends State<AddGame> {
                     value: _selectedCategoria,
                     hint: const Text(
                       'Categoria',
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(
+                        color: Color.fromARGB(200, 0, 0, 0),
+                        fontSize: 17
+                      ),
                     ),
                     isExpanded: true,
                     icon: const Icon(Icons.arrow_drop_down, color: Colors.black),
@@ -92,7 +96,10 @@ class _AddGameState extends State<AddGame> {
                     value: _selectedResultado,
                     hint: const Text(
                       'Resultado',
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(
+                        color: Color.fromARGB(200, 0, 0, 0),
+                        fontSize: 17
+                        ),
                     ),
                     isExpanded: true,
                     icon: const Icon(Icons.arrow_drop_down, color: Colors.black),
@@ -113,9 +120,9 @@ class _AddGameState extends State<AddGame> {
               ),
               const SizedBox(height: 25),
               TextFormField(
-                onSaved: (value){ resultado = value; },
+                onSaved: (value){ fecha = value; },
                 decoration: const InputDecoration(
-                  hintText: '2024-10-02',
+                  hintText: '2024-10-20',
                   filled: true,
                   fillColor: Colors.white,
                 ),
@@ -128,7 +135,7 @@ class _AddGameState extends State<AddGame> {
               ),
               const SizedBox(height: 25),
               TextFormField(
-                onSaved: (value){ resultado = value; },
+                onSaved: (value){ },
                 decoration: const InputDecoration(
                   hintText: '16:00:00',
                   filled: true,
@@ -168,14 +175,14 @@ class _AddGameState extends State<AddGame> {
                     // Navigator.push( context,
                     // MaterialPageRoute(
                     //     builder: (context) => const MenuLogin()));
-                      print('$titulo $resultado' '$_selectedResultado' '$_selectedCategoria');
+                    print('$titulo $resultado' '$_selectedResultado' '$_selectedCategoria');
                     await Supabase.instance.client
                     .from('partidos')
                     .insert([{
                       'partido': titulo, 
                       'categoria_test': _selectedCategoria, 
                       'resultado': _selectedResultado, 
-                      'fecha': '2024-10-04', 
+                      'fecha': fecha, 
                       'hora': '16:00:00', 
                       'id_cancha': 1 
                       }]);

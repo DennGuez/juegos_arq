@@ -24,108 +24,109 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: <Widget>[
           // Fondo
           const backgroundImage(),
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 45),
-            height: 200,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/logo.png'),
-              ),
-            ),
-          ),
           // Contenido
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Spacer(),
-              const SizedBox(height: 20),
-              SizedBox(
-                width: MediaQuery.sizeOf(context).width * 0.9,
-                child: const Column(
-                  children: [
-                    CountdownTitiles(),
-                    CountdownTimer()
-                  ],
+          SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  margin: const EdgeInsets.only(top: 40),
+                  height: 170,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/logo.png'),
+                    ),
+                  ),
                 ),
-              ),
-              
-              MenuButton('CONVOCATORIA Y AUSPICIADORES', Icons.picture_as_pdf, () {
-                // Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()) );
-                _launchUrl();
-              }),
-              MenuButton('FIXTURES Y RESULTADOS', Icons.calendar_today, () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const FixturesResultadosScreen()));
-              }),
-              MenuButton('JUEGOS EN CURSO', Icons.sports, () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const JuegosEnCurso()));
-              }),
-              MenuButton('HOSPEDAJE', Icons.hotel, () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const HospedajeScreen()));
-              }),
-              MenuButton('GASTRONOMIA', Icons.restaurant, () {
-                Navigator.push(context,
+                SizedBox(
+                  width: MediaQuery.sizeOf(context).width * 0.9,
+                  child: const Column(
+                    children: [
+                      CountdownTitiles(),
+                      CountdownTimer()
+                    ],
+                  ),
+                ),
+                MenuButton('CONVOCATORIA Y AUSPICIADORES', Icons.picture_as_pdf, () {
+                  // Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()) );
+                  _launchUrl();
+                }),
+                MenuButton('FIXTURES Y RESULTADOS', Icons.calendar_today, () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FixturesResultadosScreen()));
+                }),
+                MenuButton('JUEGOS EN CURSO', Icons.sports, () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const JuegosEnCurso()));
+                }),
+                MenuButton('HOSPEDAJE', Icons.hotel, () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const HospedajeScreen()));
+                }),
+                MenuButton('GASTRONOMIA', Icons.restaurant, () {
+                  Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const ComidaScreen()));
-              }),
-              MenuButton('LUGARES TURÍSTICOS', Icons.place, () {
-                Navigator.push(
+                }),
+                MenuButton('LUGARES TURÍSTICOS', Icons.place, () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LugaresTuristicosScreen()));
+                          }),
+            
+                MenuButton('EVENTOS ESPECIALES', Icons.event, () {
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const LugaresTuristicosScreen()));
-              }),
-              MenuButton('EVENTOS ESPECIALES', Icons.event, () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const EventosEspecialesScreen()));
-              }),
-              MenuButton('GANADORES', Icons.emoji_events, () {}),
-              const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ContactosScreen()));
-                      },
-                      child: const CircleAvatar(
-                        radius: 25,
-                        backgroundColor: Colors.red,
-                        child: Icon(Icons.person, color: Colors.white, size: 30),
+                        builder: (context) => const EventosEspecialesScreen()));
+                }),
+                MenuButton('GANADORES', Icons.emoji_events, () {}),
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ContactosScreen()));
+                        },
+                        child: const CircleAvatar(
+                          radius: 25,
+                          backgroundColor: Colors.red,
+                          child: Icon(Icons.person, color: Colors.white, size: 30),
+                        ),
                       ),
-                    ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: const BoxDecoration(
-                      color: Colors.white, shape: BoxShape.circle
-                    ),
-                    child: GestureDetector(
-                      onTap: () {
-                        _launchTiktok();
-                      },
-                      child: SvgPicture.asset('assets/icons/tiktok.svg',
-                        width: 35,
-                        height: 35,
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: const BoxDecoration(
+                        color: Colors.white, shape: BoxShape.circle
                       ),
-                    ))
-                  ]
+                      child: GestureDetector(
+                        onTap: () {
+                          _launchTiktok();
+                        },
+                        child: SvgPicture.asset('assets/icons/tiktok.svg',
+                          width: 35,
+                          height: 35,
+                        ),
+                      ))
+                    ]
+                  ),
                 ),
-              ),
-              const SizedBox(height: 20),
-            ],
+                const SizedBox(height: 20),
+              ],
+            ),
           ),
         ],
       ),
@@ -184,7 +185,7 @@ class TimeTitle extends StatelessWidget {
       child: Text(
         title,
         style: const TextStyle(
-            color: Colors.white, fontSize: 18, fontStyle: FontStyle.italic),
+            color: Colors.white, fontSize: 16, fontStyle: FontStyle.italic),
       ),
     );
   }

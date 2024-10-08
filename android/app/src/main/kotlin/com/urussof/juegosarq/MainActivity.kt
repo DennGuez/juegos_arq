@@ -1,4 +1,4 @@
-package com.urusoft.xvijnda
+package com.urussof.juegosarq
 
 import io.flutter.embedding.android.FlutterActivity
 
