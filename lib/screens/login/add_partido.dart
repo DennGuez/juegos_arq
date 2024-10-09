@@ -197,7 +197,7 @@ class _AddGameState extends State<AddGame> {
                                   color: Colors.green,
                                   size: 30.0,
                                 ),
-                            title: Text('Patido añadido correctamente'),
+                            title: Text('Partido añadido'),
                           );
                         }
                       );
