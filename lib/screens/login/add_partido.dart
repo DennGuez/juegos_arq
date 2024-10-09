@@ -175,17 +175,51 @@ class _AddGameState extends State<AddGame> {
                     // Navigator.push( context,
                     // MaterialPageRoute(
                     //     builder: (context) => const MenuLogin()));
-                    print('$titulo $resultado' '$_selectedResultado' '$_selectedCategoria');
-                    await Supabase.instance.client
-                    .from('partidos')
-                    .insert([{
-                      'partido': titulo, 
-                      'categoria_test': _selectedCategoria, 
-                      'resultado': _selectedResultado, 
-                      'fecha': fecha, 
-                      'hora': '16:00:00', 
-                      'id_cancha': 1 
-                      }]);
+                    try {
+                      // Añadir partido supabase
+                      await Supabase.instance.client
+                      .from('partidos')
+                      .insert([{
+                        'partido': titulo, 
+                        'categoria_test': _selectedCategoria, 
+                        'resultado': _selectedResultado, 
+                        'fecha': fecha, 
+                        'hora': '16:00:00', 
+                        'id_cancha': 1 
+                        }]);
+                        // Mostrar dialogo de alerta
+                        showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const AlertDialog(
+                            icon: Icon(
+                                  Icons.check_circle,
+                                  color: Colors.green,
+                                  size: 30.0,
+                                ),
+                            title: Text('Patido añadido correctamente'),
+                          );
+                        }
+                      );
+                        print('$titulo $resultado' '$_selectedResultado' '$_selectedCategoria');
+                      // Handle data here
+                    } catch (e) {
+                      // Handle the error here
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            icon: const Icon(
+                                  Icons.error,
+                                  color: Colors.red,
+                                  size: 30.0,
+                                ),
+                            title: Text('Error al añadir partido: $e'),
+                          );
+                        }
+                      );
+                      print('Error fetching data: $e');                      
+                    }
                     }
                   },
                   child: const Text(

@@ -7,7 +7,6 @@ import 'package:juegos_arq/screens/home/widgets/menu_button.dart';
 import 'package:date_count_down/date_count_down.dart';
 import 'package:juegos_arq/screens/hospedaje/hospedaje_screen.dart';
 import 'package:juegos_arq/screens/juegos_curso/juegos_curso.dart';
-// import 'package:juegos_arq/screens/juegos_curso/juegos_curso.dart';
 import 'package:juegos_arq/screens/lugares_turisticos/lugares_turisticos_screen.dart';
 import 'package:juegos_arq/shared/widgets/background_image.dart';
 import 'package:flutter_svg/svg.dart';
@@ -46,7 +45,7 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.sizeOf(context).width * 0.9,
                   child: const Column(
-                    children: [
+                    children: <Widget>[
                       CountdownTitiles(),
                       CountdownTimer()
                     ],
