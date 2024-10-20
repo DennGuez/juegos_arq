@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:juegos_arq/screens/juegos_curso/game_card.dart';
 import 'package:juegos_arq/shared/widgets/background_image.dart';
 import 'package:juegos_arq/shared/widgets/footer_buttons.dart';
 // import 'package:juegos_arq/shared/widgets/footer_buttons.dart';
@@ -22,7 +23,6 @@ class _JuegosEnCursoState extends State<JuegosEnCurso> {
     .from('partidos')
     .stream(primaryKey: ['id'])
     .eq('fecha', fechaActual);
-    // print(fechaActual.toString().split(' ')[0]);
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -59,7 +59,7 @@ class _JuegosEnCursoState extends State<JuegosEnCurso> {
                       },
                       child: GameCard(
                               title: partidos[index]['partido'],
-                              subtitle: partidos[index]['categoria_test'],
+                              subtitle: '${partidos[index]['disciplina']} ${partidos[index]['modalidad']}', 
                               time: partidos[index]['hora']
                         ),
                     );
@@ -76,66 +76,9 @@ class _JuegosEnCursoState extends State<JuegosEnCurso> {
   }
 }
 
-class GameCard extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final String time;
-
-  const GameCard({required this.title, required this.subtitle, required this.time});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-        side: const BorderSide(
-          color: Colors.white,
-          width: 2.0,
-        ),
-      ),
-      color: const Color(0xff000643),
-      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-      child: Padding(
-        padding: const EdgeInsets.all(15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(height: 5),
-            Text(
-              subtitle,
-              style: const TextStyle(
-                fontSize: 18.5,
-                color: Colors.white,
-                fontWeight: FontWeight.bold
-              ),
-            ),
-            const SizedBox(height: 5),
-            Text(
-              'Inicio: $time',
-              style: const TextStyle(
-                fontSize: 18.5,
-                color: Colors.white,
-                fontWeight: FontWeight.bold
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class SecondPage extends StatefulWidget {
   final int partidoId;
-  const SecondPage({required this.partidoId});
+  const SecondPage({super.key, required this.partidoId});
   @override
   State<SecondPage> createState() => _SecondPageState();
   
@@ -144,17 +87,22 @@ class SecondPage extends StatefulWidget {
 class _SecondPageState extends State<SecondPage> {
    late Future<List> _partido;
   @override
-  void initState() {
-     _partido = Supabase.instance.client.from('partidos').select('*').eq('id', widget.partidoId);
-    super.initState();
-  }
+  /* Otra manera de hacer llamado a la api */
+  // void initState() {
+  //    _partido = Supabase.instance.client.from('partidos').select('*').eq('id', widget.partidoId);
+  //   super.initState();
+  // }
   @override
   Widget build(BuildContext context) {
+    _partido = Supabase.instance.client
+      .from('partidos')
+      .select('*')
+      .eq('id', widget.partidoId);
     return Scaffold(
       body: Stack(
         children: <Widget>[
           // Fondo
-        backgroundImage(),
+        const backgroundImage(),
         FutureBuilder<List>(
         future: _partido,
         builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
@@ -166,9 +114,9 @@ class _SecondPageState extends State<SecondPage> {
                 Container(
                   margin: const EdgeInsets.only(top: 100),
                   child: Text(
-                    '${snapshot.data?.first['categoria_test']}',
+                    '${snapshot.data?.first['disciplina']}',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontFamily: 'Telemarines',
                         color: Colors.white,
                         fontSize: 40,
@@ -176,29 +124,29 @@ class _SecondPageState extends State<SecondPage> {
                   ),
                 ),
               // Contenido
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 Container(
                   width: MediaQuery.of(context).size.width,
                   margin: const EdgeInsets.symmetric(horizontal: 20),
                   child: Text('${snapshot.data?.first['fecha']}',
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.white,
                           fontSize: 25,
                           fontWeight: FontWeight.bold)),
                 ),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 Text('${snapshot.data?.first['partido']}',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.white,
                         fontSize: 40,
                         fontWeight: FontWeight.bold)),
                 Text('Inicio: ${snapshot.data?.first['hora']}',
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.white,
                         fontSize: 25,
                         fontWeight: FontWeight.bold)),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 // UBICACION BUTTON
                 Container(
                 width: MediaQuery.of(context).size.width * 0.90,
@@ -220,7 +168,7 @@ class _SecondPageState extends State<SecondPage> {
                       style: TextStyle(color: Colors.white),
                     )),
               ),
-                 SizedBox(height: 40),
+                 const SizedBox(height: 40),
                 // Footer Buttons
                 const FooterButtons()
               ],
@@ -237,7 +185,7 @@ class _SecondPageState extends State<SecondPage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 16),
-                child: Text('Error: ${snapshot.error}', style: TextStyle(color: Colors.white),),
+                child: Text('Error: ${snapshot.error}', style: const TextStyle(color: Colors.white),),
               ),
             ];
           } else {

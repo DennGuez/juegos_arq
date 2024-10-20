@@ -5,7 +5,7 @@ class MenuButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback? onPressed;
 
-  const MenuButton(this.text, this.icon, this.onPressed);
+  const MenuButton(this.text, this.icon, this.onPressed, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class MenuButton extends StatelessWidget {
           backgroundColor: const Color.fromARGB(255, 255, 205, 6),
           minimumSize: const Size(double.infinity, 50),
         ),
-        icon: Icon(icon,),
+        icon: Icon(icon),
         label: Text(text, style: const TextStyle(
           fontSize: 19
         )),

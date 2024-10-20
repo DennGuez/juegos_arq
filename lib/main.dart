@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-// import 'package:juegos_arq/screens/ganadores/addGanadorForm.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:juegos_arq/shared/splash.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
 
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load( fileName: ".env");
+  String url = dotenv.env['URL']!;
+  String anonKey = dotenv.env['ANON_KEY']!;
   await Supabase.initialize(
-  url: 'https://hmkiagekhcwvizptxyzu.supabase.co',
-  anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhta2lhZ2VraGN3dml6cHR4eXp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjEzMTU4MDUsImV4cCI6MjAzNjg5MTgwNX0._8NpdgOIWwtuzxuQbFQdNoN-hsXqa7uDWT1-rlyaJD4',
+    url: url,
+    anonKey: anonKey,
   );
   runApp(MyApp());
 }
