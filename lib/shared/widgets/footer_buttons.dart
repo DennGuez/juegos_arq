@@ -9,44 +9,45 @@ class FooterButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        GestureDetector( 
-          onTap: () {
-            Navigator.push(
-              context, MaterialPageRoute(builder: (context) => ContactosScreen()));
-          },
-          child: screenView != 'contactos' ? CircleAvatar(
-            radius: 25,
-            backgroundColor: Colors.red,
-            child: Icon(Icons.person, color: Colors.white, size: 30),
-          ) : Container()
-        ),
-        // SizedBox(width: 50),
-        GestureDetector(
-          onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => HomePage()));
-          },
-          child: CircleAvatar(
-            radius: 25,
-            backgroundColor: Colors.red,
-            child: Icon(Icons.home, color: Colors.white, size: 30),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          GestureDetector( 
+            onTap: () {
+              Navigator.push(
+                context, MaterialPageRoute(builder: (context) => ContactosScreen()));
+            },
+            child: screenView != 'contactos' ? CircleAvatar(
+              radius: 25,
+              backgroundColor: Colors.red,
+              child: Icon(Icons.person, color: Colors.white, size: 30),
+            ) : Container()
           ),
-        ),
-        // SizedBox(width: 50),
-        GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: CircleAvatar(
-            radius: 25,
-            backgroundColor: Colors.red,
-            child: Icon(Icons.arrow_back, color: Colors.white, size: 30),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => HomePage()));
+            },
+            child: CircleAvatar(
+              radius: 25,
+              backgroundColor: Colors.red,
+              child: Icon(Icons.home, color: Colors.white, size: 30),
+            ),
           ),
-        ),
-      ]
+          GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: CircleAvatar(
+              radius: 25,
+              backgroundColor: Colors.red,
+              child: Icon(Icons.arrow_back, color: Colors.white, size: 30),
+            ),
+          ),
+        ]
+      ),
     );
   }
 }

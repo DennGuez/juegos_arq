@@ -28,7 +28,7 @@ class ThirdPage extends StatelessWidget {
                   style: const TextStyle(
                       fontFamily: 'Telemarines',
                       color: Colors.white,
-                      fontSize: 40,
+                      fontSize: 38,
                       fontWeight: FontWeight.bold),
                 ),
               ),
@@ -65,7 +65,7 @@ class ThirdPage extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
                   hospedaje['descripcion'],
-                  style: const TextStyle(color: Colors.white, fontSize: 21),
+                  style: const TextStyle(color: Colors.white, fontSize: 17),
                 ),
               ),
               const SizedBox(

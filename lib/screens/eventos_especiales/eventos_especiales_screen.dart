@@ -24,7 +24,7 @@ class EventosEspecialesScreen extends StatelessWidget {
                   style: TextStyle(
                       fontFamily: 'Telemarines',
                       color: Colors.white,
-                      fontSize: 40,
+                      fontSize: 35,
                       fontWeight: FontWeight.bold),
                 ),
               ),
@@ -123,7 +123,7 @@ class SecondPage extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(eventosList[evento]['descripcion'],
-                      style: TextStyle(color: Colors.white, fontSize: 18)),
+                      style: TextStyle(color: Colors.white, fontSize: 17)),
                     ),
                   ),
                 ),

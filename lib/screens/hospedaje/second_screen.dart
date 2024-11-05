@@ -51,7 +51,7 @@ class _SecondPageState extends State<SecondPage> {
                   style: TextStyle(
                       fontFamily: 'Telemarines',
                       color: Colors.white,
-                      fontSize: 40,
+                      fontSize: 38,
                       fontWeight: FontWeight.bold),
                 ),
               ),

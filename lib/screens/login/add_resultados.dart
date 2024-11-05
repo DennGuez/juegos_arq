@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:juegos_arq/screens/diciplinas/fixture_filtered_page.dart';
 import 'package:juegos_arq/shared/widgets/background_image.dart';
 import 'package:juegos_arq/shared/widgets/footer_buttons.dart';
 
-class FixturesResultadosScreen extends StatelessWidget {
-  const FixturesResultadosScreen({super.key});
+class AddResultado extends StatelessWidget {
+  const AddResultado({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,19 +14,6 @@ class FixturesResultadosScreen extends StatelessWidget {
           const backgroundImage(),
           Column(
             children: [
-              // TITLE
-              Container(
-                margin: const EdgeInsets.only(top: 80),
-                child: const Text(
-                  'FIXTURE Y RESULTADOS',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontFamily: 'Telemarines',
-                      color: Colors.white,
-                      fontSize: 38,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
               const SizedBox(height: 40),
               // Contenido
               Expanded(
@@ -66,7 +52,6 @@ class FixturesResultadosScreen extends StatelessWidget {
                                       collapsedIconColor: const Color(0xff151515),
                                       title: Text(diciplinaList[index]['modalidad'][index2]['nombre'], style: const TextStyle(color: Color.fromARGB(255, 21, 21, 21), fontSize: 18),),
                                       children: [
-                                        // Text(diciplinaList[index]['modalidad'][index2]['categoria'][0])
                                         ListView.builder(
                                           shrinkWrap: true,
                                           physics: const ClampingScrollPhysics(),
@@ -74,13 +59,12 @@ class FixturesResultadosScreen extends StatelessWidget {
                                           itemBuilder: (context, index3) {
                                             return GestureDetector(
                                               onTap: () {
-                                                // partidoId: diciplinaList[index]['modalidad'][index2]['categoria'][index3]
-                                                Navigator.push(context, MaterialPageRoute(
-                                                  builder: (context) => FixtureFilterPage(
-                                                    category: diciplinaList[index]['modalidad'][index2]['categoria'][index3],
-                                                    discipline: diciplinaList[index]['disciplina'],
-                                                    modality: diciplinaList[index]['modalidad'][index2]['nombre']
-                                                  ))); 
+                                                // Navigator.push(context, MaterialPageRoute(
+                                                //   builder: (context) => FixtureFilterPage(
+                                                //     category: diciplinaList[index]['modalidad'][index2]['categoria'][index3],
+                                                //     discipline: diciplinaList[index]['disciplina'],
+                                                //     modality: diciplinaList[index]['modalidad'][index2]['nombre']
+                                                //   ))); 
                                               },
                                               child: Container(
                                                   decoration: const BoxDecoration(

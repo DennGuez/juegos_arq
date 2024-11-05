@@ -24,7 +24,7 @@ class ComidaScreen extends StatelessWidget {
                   style: TextStyle(
                       fontFamily: 'Telemarines',
                       color: Colors.white,
-                      fontSize: 40,
+                      fontSize: 36,
                       fontWeight: FontWeight.bold),
                 ),
               ),
@@ -62,7 +62,7 @@ class GameCard extends StatelessWidget {
   // final String descripcion;
   final String pantalla;
   GameCard(
-      {required this.title,
+      {super.key, required this.title,
       // this.descripcion = 'a',
       required this.pantalla});
 
@@ -106,7 +106,7 @@ class GameCard extends StatelessWidget {
 /* SECOND PAGE */
 class SecondPage extends StatelessWidget {
   final int categoria;
-  const SecondPage({required this.categoria});
+  const SecondPage({super.key, required this.categoria});
 
   @override
   Widget build(BuildContext context) {
@@ -160,7 +160,7 @@ class SecondPage extends StatelessWidget {
 /* THIRD PAGE */
 class ThirdPage extends StatelessWidget {
   final int comidaLugar;
-  const ThirdPage({required this.comidaLugar});
+  const ThirdPage({super.key, required this.comidaLugar});
 
   @override
   Widget build(BuildContext context) {
@@ -170,7 +170,6 @@ class ThirdPage extends StatelessWidget {
           // Fondo
           const backgroundImage(),
           Column(
-            // comidasList[comidaLugar]['name'] == 'TRANDICIONALES' ?
             children: [
               Container(
                 width: MediaQuery.of(context).size.width,
@@ -181,7 +180,7 @@ class ThirdPage extends StatelessWidget {
                   style: const TextStyle(
                       fontFamily: 'Telemarines',
                       color: Colors.white,
-                      fontSize: 40,
+                      fontSize: 36,
                       fontWeight: FontWeight.bold),
                 ),
               ),
@@ -203,7 +202,7 @@ class ThirdPage extends StatelessWidget {
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Text(comidasList[comidaLugar]['descripcion'],
-                    style: const TextStyle(color: Colors.white, fontSize: 19)),
+                    style: const TextStyle(color: Colors.white, fontSize: 17)),
                 ),
               ),
               Container(
@@ -249,77 +248,34 @@ List<Map<String, dynamic>> comidasList = [
 "categoria": "TRANDICIONALES",
 "imagenUrl": "https://i.postimg.cc/qqtSrBgd/temp-Image-YIRCqu.avif",
 "descripcion": "El Api con Pastel, otro manjar típico de la ciudad de Oruro. Consiste en una deliciosa bebida caliente elaborada a base de maíz morado, endulzada y aromatizada con canela y clavo de olor. Se sirve acompañado de un pastel frito relleno de queso, creando una combinación perfecta entre lo dulce y lo salado. El api con pastel es ideal para disfrutar en las mañanas frías o como una merienda reconfortante, brindándote un sabor auténtico y tradicional de la región.",
-"ubicacion": "https://maps.app.goo.gl/HEmHZKEtKttzLcg76",
+"ubicacion": "https://maps.app.goo.gl/mPJauijLDoH2NqWZA",
 },
 {
 "name": "CHARQUECAN ORUREÑO",
 "categoria": "TRANDICIONALES",
 "imagenUrl": "https://i.postimg.cc/mDpJK1Lw/temp-Image-KHense.avif",
 "descripcion": "Este plato tradicional es una experiencia culinaria que no te puedes perder. Se trata de una exquisita preparación que combina charque de res o llama desmenuzado y frito, acompañado de huevo duro, mote, papa, queso y llajua, creando una mezcla de sabores y texturas únicas.",
-"ubicacion": "https://maps.app.goo.gl/DmRHPC81DhjrzhY99",
+"ubicacion": "https://maps.app.goo.gl/RJ1vBWuynPBh1X6W7",
 },
 {
 "name": "CHORIZO TRADICIONAL",
 "categoria": "TRANDICIONALES",
 "imagenUrl": "https://i.postimg.cc/vTpjZR6x/temp-Imagen-Dd-ZSy.avif",
 "descripcion": "Este delicioso plato tradicional de la ciudad de Oruro es una experiencia culinaria que no te puedes perder. Se trata de una exquisita preparación que combina carne de cerdo molida y tripa gorda de res, rellena con una mezcla de sabores y aromas únicos.",
-"ubicacion": "https://maps.app.goo.gl/HEmHZKEtKttzLcg76",
+"ubicacion": "https://maps.app.goo.gl/A56aweMPqYpMyGEN9",
 },
 {
 "name": "HELADOS DE CANELA",
 "categoria": "TRANDICIONALES",
 "imagenUrl": "https://i.postimg.cc/66SF0Z16/temp-Image-XRHFy-J.avif",
 "descripcion": "Este postre tradicional de la ciudad de Oruro es una delicia refrescante que no te puedes perder. Los heladitos de canela son una exquisita preparación que combina la suavidad del hielo con el inconfundible aroma y sabor de la canela.",
-"ubicacion": "https://maps.app.goo.gl/DmRHPC81DhjrzhY99",
+"ubicacion": "https://maps.app.goo.gl/2AjtYy3qVJbxsA4x8",
 },
 {
 "name": "RESTAURANT NAYJAMA",
 "categoria": "TRANDICIONALES",
 "imagenUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-iVfSFCuSpcb7D1sPGlAH2RHmyCqEHmijEQ&s",
 "descripcion": "Nayjama es un restaurante con mucha tradición en la ciudad, nació como un pequeño lugar de comida típica y con los años se ha convertido en un bonito y acogedor.",
-"ubicacion": "https://maps.app.goo.gl/3qJJDenSMcJbPza99",
+"ubicacion": "https://maps.app.goo.gl/yA4XnNzdeF7GDqoa6",
 }
 ];
-
-
-// List<Map<String, dynamic>> comidasList = [
-//   {
-//     'name': 'LA CASONA',
-//     'categoria': 'RESTAURANTES',
-//     'descripcion':
-//         'Lugar de salteñas típicas….Especialidad…. Contactos…',
-//     'tipo': 'Salteñas, pizzas, empanadas',
-//     'ubicacion': 'https://maps.app.goo.gl/sNDYfqwYRTVN8eRj7',
-//     'imagenUrl': 'https://lh3.googleusercontent.com/p/AF1QipObd-hig6kOBj5Kdbcqck7CKHXT6hPP68Hg9S2G=s1360-w1360-h1020'
-//   },
-//   {
-//     'name': 'LA RANCHERIA',
-//     'categoria': 'RESTAURANTES',
-//     'descripcion':
-//         'Choripanes especiales tipicos de oruro.',
-//     'tipo': 'Choripanes especiales',
-//     'ubicacion': 'https://maps.app.goo.gl/sNDYfqwYRTVN8eRj7',
-//     'imagenUrl':
-//         'https://lh3.googleusercontent.com/p/AF1QipObd-hig6kOBj5Kdbcqck7CKHXT6hPP68Hg9S2G=s1360-w1360-h1020'
-//   },
-//   {
-//     'name': 'DOÑA RITA',
-//     'categoria': 'RESTAURANTES',
-//     'descripcion':
-//         'Charkencan de carne de llama, una costumbre orureña',
-//     'tipo': 'Chaquekan',
-//     'ubicacion': 'https://maps.app.goo.gl/sNDYfqwYRTVN8eRj7',
-//     'imagenUrl':
-//         'https://lh3.googleusercontent.com/p/AF1QipObd-hig6kOBj5Kdbcqck7CKHXT6hPP68Hg9S2G=s1360-w1360-h1020'
-//   },
-//   {
-//     'name': 'DOÑA CHAVELITA',
-//     'categoria': 'RESTAURANTES',
-//     'descripcion':
-//         'Rostro asado ',
-//     'tipo': 'Rostro asado de corderno',
-//     'ubicacion': 'https://maps.app.goo.gl/sNDYfqwYRTVN8eRj7',
-//     'imagenUrl':
-//         'https://lh3.googleusercontent.com/p/AF1QipObd-hig6kOBj5Kdbcqck7CKHXT6hPP68Hg9S2G=s1360-w1360-h1020'
-//   }
-// ];

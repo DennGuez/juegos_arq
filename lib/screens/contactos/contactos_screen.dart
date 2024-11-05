@@ -91,7 +91,7 @@ class SecondPage extends StatelessWidget {
                   style: TextStyle(
                       fontFamily: 'Telemarines',
                       color: Colors.white,
-                      fontSize: 35,
+                      fontSize: 32,
                       fontWeight: FontWeight.bold),
                 ),
               ),
@@ -269,7 +269,7 @@ List<Map<String, dynamic>> organizadoresList = [
   {
     "name": "ARQ. ABNER GONZALES MEDINA",
     "charge": "MARETING Y PUBLICIDAD.",
-    "imagenUrl": "https://scontent.fcbb2-1.fna.fbcdn.net/v/t1.6435-9/98001270_10219953828909545_7826167829131952128_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=e982cd&_nc_ohc=MTYyTjMq-DsQ7kNvgH9-NDs&_nc_zt=23&_nc_ht=scontent.fcbb2-1.fna&_nc_gid=ALd6Hs1yjgzWntkdWUVXzjS&oh=00_AYAJaUVc-uIIUttzvVEzQ-5lZqol-WsubOSFoEzjgls2Qg&oe=6736305E",
+    "imagenUrl": "https://i.postimg.cc/NGkF1RK2/temp-Image-Yt-KOSL.avif",
     "number": "+591 60435101",
     "city": "ORURO"
   }

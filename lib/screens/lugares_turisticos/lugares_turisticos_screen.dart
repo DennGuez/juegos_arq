@@ -24,7 +24,7 @@ class LugaresTuristicosScreen extends StatelessWidget {
                   style: TextStyle(
                       fontFamily: 'Telemarines',
                       color: Colors.white,
-                      fontSize: 40,
+                      fontSize: 35,
                       fontWeight: FontWeight.bold),
                 ),
               ),
@@ -103,7 +103,7 @@ class SecondPage extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(turisticosList[turismoLugar]['descripcion'],
-                      style: const TextStyle(color: Colors.white, fontSize: 18)),
+                      style: const TextStyle(color: Colors.white, fontSize: 17)),
                     ),
                   ),
                 ),

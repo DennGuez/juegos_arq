@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:juegos_arq/screens/juegos_curso/game_card.dart';
 import 'package:juegos_arq/shared/widgets/background_image.dart';
 import 'package:juegos_arq/shared/widgets/footer_buttons.dart';
-// import 'package:juegos_arq/shared/widgets/footer_buttons.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class JuegosEnCurso extends StatefulWidget {
@@ -23,6 +22,7 @@ class _JuegosEnCursoState extends State<JuegosEnCurso> {
     .from('partidos')
     .stream(primaryKey: ['id'])
     .eq('fecha', fechaActual);
+
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -37,7 +37,7 @@ class _JuegosEnCursoState extends State<JuegosEnCurso> {
                   style: TextStyle(
                       fontFamily: 'Telemarines',
                       color: Colors.white,
-                      fontSize: 40,
+                      fontSize: 38,
                       fontWeight: FontWeight.bold),
                 ),
               ),
@@ -48,26 +48,36 @@ class _JuegosEnCursoState extends State<JuegosEnCurso> {
                   return const Center(child: CircularProgressIndicator(),);
                 }
                 final partidos = snapshot.data!;
-                return Expanded(
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: partidos.length,
-                    itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => SecondPage(partidoId: partidos[index]['id'])));
-                      },
-                      child: GameCard(
-                              title: partidos[index]['partido'],
-                              subtitle: '${partidos[index]['disciplina']} ${partidos[index]['modalidad']}', 
-                              time: partidos[index]['hora']
-                        ),
+                    return Expanded(
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: partidos.length,
+                        itemBuilder: (context, index) {
+
+                        final now = DateTime.now();
+                        // Calcula 15 minutos antes y una hora después
+                        final dateHour = DateTime.parse(partidos[index]['date']);
+                        DateTime startTime = dateHour.subtract(const Duration(minutes: 15));
+                        DateTime endTime = dateHour.add(const Duration(hours: 1));
+                        // Verifica si está dentro del rango para mostrar el partido
+                        
+                        if  ((now.isAfter(startTime) || now.isAtSameMomentAs(startTime)) && 
+                            (now.isBefore(endTime) || now.isAtSameMomentAs(endTime))){
+                          return GestureDetector(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => SecondPage(partidoId: partidos[index]['id'])));
+                              },
+                              child: GameCard(
+                                      title: partidos[index]['partido'],
+                                      subtitle: '${partidos[index]['disciplina']} ${partidos[index]['modalidad']}', 
+                                      time: partidos[index]['hora']
+                                ),
+                          );
+                        } 
+                        }
+                      ),
                     );
-                    }
-                  ),
-                );
-              }
-              ),
+                }),
             ],
           )
         ]
@@ -85,13 +95,8 @@ class SecondPage extends StatefulWidget {
 }
 
 class _SecondPageState extends State<SecondPage> {
-   late Future<List> _partido;
-  @override
-  /* Otra manera de hacer llamado a la api */
-  // void initState() {
-  //    _partido = Supabase.instance.client.from('partidos').select('*').eq('id', widget.partidoId);
-  //   super.initState();
-  // }
+  late Future<List> _partido;
+
   @override
   Widget build(BuildContext context) {
     _partido = Supabase.instance.client
@@ -119,7 +124,7 @@ class _SecondPageState extends State<SecondPage> {
                     style: const TextStyle(
                         fontFamily: 'Telemarines',
                         color: Colors.white,
-                        fontSize: 40,
+                        fontSize: 38,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -173,8 +178,6 @@ class _SecondPageState extends State<SecondPage> {
                 const FooterButtons()
               ],
               )
-                // child: Text('Result: ${snapshot.data?.first['partido']}', style: TextStyle(color: Colors.white), ),
-              
             ];
           } else if (snapshot.hasError) {
             children = <Widget>[
@@ -209,50 +212,6 @@ class _SecondPageState extends State<SecondPage> {
           );
         },
               ),
-      //     Column(
-      //       children: [
-      //         Container(
-      //           margin: const EdgeInsets.only(top: 100),
-      //           child: Text(
-      //             'Categoria',
-      //             textAlign: TextAlign.center,
-      //             style: TextStyle(
-      //                 fontFamily: 'Telemarines',
-      //                 color: Colors.white,
-      //                 fontSize: 40,
-      //                 fontWeight: FontWeight.bold),
-      //           ),
-      //         ),
-      //         // Contenido
-      //         SizedBox(height: 40),
-      //         Container(
-      //           width: MediaQuery.of(context).size.width,
-      //           margin: const EdgeInsets.symmetric(horizontal: 20),
-      //           child: Text('Fecha',
-      //               style: TextStyle(
-      //                   color: Colors.white,
-      //                   fontSize: 25,
-      //                   fontWeight: FontWeight.bold)),
-      //         ),
-      //         SizedBox(height: 40),
-      //         Text('Name',
-      //             textAlign: TextAlign.center,
-      //             style: TextStyle(
-      //                 color: Colors.white,
-      //                 fontSize: 40,
-      //                 fontWeight: FontWeight.bold)),
-      //         Text('Inicio: hora',
-      //             style: TextStyle(
-      //                 color: Colors.white,
-      //                 fontSize: 25,
-      //                 fontWeight: FontWeight.bold)),
-      //         SizedBox(height: 40),
-
-      //         Expanded(child: ElevatedButton(onPressed: null, child: const Text('Ubicacion'))),
-      // // Footer Buttons
-      // // FooterButtons()
-      //       ],
-      //     )
         ],
       ),
     );
