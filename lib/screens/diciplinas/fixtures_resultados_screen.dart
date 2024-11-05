@@ -244,7 +244,7 @@ List<Map<String, dynamic>> diciplinaList = [
       ]
   },
   {
-      "disciplina": "RAQUET",
+      "disciplina": "RAQUETBOL",
       "modalidad": [
           {
               "nombre": "RAQUET VARONES INDIVIDUAL",
@@ -265,42 +265,17 @@ List<Map<String, dynamic>> diciplinaList = [
               "categoria": [
                   "CATEGORÍA LIBRE"
               ]
-          },
-          {
-              "nombre": "RAQUET DAMAS DOBLE",
-              "categoria": [
-                  "CATEGORÍA LIBRE"
-              ]
           }
       ]
   },
   {
-      "disciplina": "RAQUET FRONTÓN",
+      "disciplina": "RAQUETA FRONTÓN",
       "modalidad": [
-          {
-              "nombre": "RAQUET FRONTÓN VARONES INDIVIDUAL",
-              "categoria": [
-                  "CATEGORÍA LIBRE",
-                  "CATEGORÍA SENIOR"
-              ]
-          },
           {
               "nombre": "RAQUET FRONTÓN VARONES DOBLE",
               "categoria": [
                   "CATEGORÍA LIBRE",
                   "CATEGORÍA SENIOR"
-              ]
-          },
-          {
-              "nombre": "RAQUET FRONTÓN DAMAS INDIVIDUAL",
-              "categoria": [
-                  "CATEGORÍA LIBRE"
-              ]
-          },
-          {
-              "nombre": "RAQUET FRONTÓN DAMAS DOBLE",
-              "categoria": [
-                  "CATEGORÍA LIBRE"
               ]
           }
       ]
@@ -310,13 +285,6 @@ List<Map<String, dynamic>> diciplinaList = [
       "modalidad": [
           {
               "nombre": "TENIS VARONES",
-              "categoria": [
-                  "CATEGORÍA LIBRE",
-                  "CATEGORÍA SENIOR"
-              ]
-          },
-          {
-              "nombre": "TENIS DAMAS",
               "categoria": [
                   "CATEGORÍA LIBRE",
                   "CATEGORÍA SENIOR"
@@ -405,7 +373,7 @@ List<Map<String, dynamic>> diciplinaList = [
               ]
           },
           {
-              "nombre": "CARRERA DE RELEVOS 4X100mts. VARONES",
+              "nombre": "CARRERA DE RELEVOS 4X100mts. MIXTO",
               "categoria": [
                   "CATEGORÍA LIBRE",
                   "CATEGORÍA SENIOR",
@@ -480,31 +448,7 @@ List<Map<String, dynamic>> diciplinaList = [
               ]
           },
           {
-              "nombre": "CARRERA DE RELEVOS 4X100mts. DAMAS",
-              "categoria": [
-                  "CATEGORÍA LIBRE",
-                  "CATEGORÍA SENIOR",
-                  "CATEGORÍA MASTER"
-              ]
-          },
-          {
-              "nombre": "SALTO LARGO DAMAS",
-              "categoria": [
-                  "CATEGORÍA LIBRE",
-                  "CATEGORÍA SENIOR",
-                  "CATEGORÍA MASTER"
-              ]
-          },
-          {
               "nombre": "LANZAMIENTO DE BALA DAMAS",
-              "categoria": [
-                  "CATEGORÍA LIBRE",
-                  "CATEGORÍA SENIOR",
-                  "CATEGORÍA MASTER"
-              ]
-          },
-          {
-              "nombre": "LANZAMIENTO DE JABALINA DAMAS",
               "categoria": [
                   "CATEGORÍA LIBRE",
                   "CATEGORÍA SENIOR",
@@ -517,14 +461,7 @@ List<Map<String, dynamic>> diciplinaList = [
       "disciplina": "TRIATLÓN",
       "modalidad": [
           {
-              "nombre": "TRIATLÓN VARONES",
-              "categoria": [
-                  "CATEGORÍA LIBRE",
-                  "CATEGORÍA SENIOR"
-              ]
-          },
-          {
-              "nombre": "TRIATLÓN DAMAS",
+              "nombre": "TRIATLÓN MIXTO",
               "categoria": [
                   "CATEGORÍA LIBRE",
                   "CATEGORÍA SENIOR"

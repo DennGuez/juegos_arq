@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:juegos_arq/screens/diciplinas/match_filtered.dart';
 import 'package:juegos_arq/screens/diciplinas/widgets/filter_card.dart';
 import 'package:juegos_arq/shared/widgets/background_image.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -81,9 +82,21 @@ class FixtureFilterPage extends StatelessWidget {
                               shrinkWrap: true,
                               itemCount: eventosPorFecha[index].length,
                               itemBuilder: (context, index2) {
-                                return FilterCard(
-                                  title: eventosPorFecha[index][index2]['partido'], 
-                                  subtitle: eventosPorFecha[index][index2]['categoria']
+                                return GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(context, MaterialPageRoute(
+                                        builder: (context) => MatchFiltered(
+                                          partido: eventosPorFecha[index][index2]['partido'],
+                                          modalidad: eventosPorFecha[index][index2]['modalidad'],
+                                          disciplina: eventosPorFecha[index][index2]['disciplina'],
+                                          resultado: eventosPorFecha[index][index2]['resultado'],
+                                          ubicacion: eventosPorFecha[index][index2]['ubicacion'],
+                                        )));
+                                  },
+                                  child: FilterCard(
+                                    title: eventosPorFecha[index][index2]['partido'], 
+                                    subtitle: eventosPorFecha[index][index2]['categoria']
+                                  ),
                                 );
                               },
                             )

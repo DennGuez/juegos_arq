@@ -254,23 +254,24 @@ class GameCard extends StatelessWidget {
 List<Map<String, dynamic>> organizadoresList = [
   {
     "name": "ARQ. PACHA MARIO MOLINA ARCE",
-    "charge": "PRESIDENTE DEL CAO.",
+    "charge": "PRESIDENTE DEL CAO. ORURO",
     "imagenUrl": "https://i.postimg.cc/Wb94yj62/temp-Imagemvn-Qqd.avif",
-    "number": "+591 72465284",
-    "city": "ORURO"
-  },
-  {
+    "number": "+591 72465284"
+  },{
     "name": "ARQ. RADHARANI MIRIAM NAVAS CONDORCETT",
-    "charge": "ORGANIZACION DEPORTIVA.",
+    "charge": "ORGANIZACIÓN DEPORTIVA. ORURO",
     "imagenUrl": "https://i.postimg.cc/VkpkYRVp/temp-Imagegs8-AEh.avif",
-    "number": "+591 72355975",
-    "city": "ORURO"
-  },
-  {
+    "number": "+591 72355975"
+  },{
     "name": "ARQ. ABNER GONZALES MEDINA",
-    "charge": "MARETING Y PUBLICIDAD.",
+    "charge": "MARETING Y PUBLICIDAD. ORURO",
     "imagenUrl": "https://i.postimg.cc/NGkF1RK2/temp-Image-Yt-KOSL.avif",
-    "number": "+591 60435101",
-    "city": "ORURO"
+    "number": "+591 60435101"
+  },{
+    "name": "ARQ. AYDA DAVEYBA ARANDIA AVILA DE BENITEZ",
+    "charge": "COMISIÓN DE PROTOCOLO",
+    "imagenUrl": "https://i.postimg.cc/sDmMSckY/temp-Image-CT8lqm.avif",
+    "number": "+591 71185184"
   }
 ];
+

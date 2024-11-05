@@ -410,7 +410,7 @@ Future<DateTime?> showDateTimePicker({
                           'disciplina': _selectedDisciplina,
                           'modalidad': _selectedModalidad,
                           'categoria': _selectedCategoria!.substring(firstSpaceIndex + 1), 
-                          // 'resultado': _selectedResultado, 
+                          'resultado': 'Por disputarse',
                           'fecha': _selectedDate.toString().substring(0, 10), 
                           'hora': _selectedDate.toString().substring(11, 19),  
                           'date': _selectedDate.toString(),
